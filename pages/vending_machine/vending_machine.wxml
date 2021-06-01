@@ -1,0 +1,29 @@
+<view class="container">
+  <block wx:key="index" wx:for="{{machines}}" wx:for-item="item">
+    <view class="machines-list">
+      <navigator  url="/pages/vending_statistics/vending_statistics?id={{item.id}}">
+        <view class="row">
+          <text class="label" id="id-label">售货柜编号：</text>
+          <text class="content" id="id-content">{{item.id}}</text>
+        </view>2
+        <view class="row">
+          <text class="label" id="position-label">位置：</text>
+          <text class="content" id="position-content">{{item.position}}</text>
+        </view>
+        <view class="row">
+          <text class="label" id="model-label">模型：</text>
+          <text class="content" id="model-content">{{item.model}}</text>
+        </view>
+        <view class="row">
+          <text class="label" id="goods-label">商品列表：</text>
+        </view>
+        <block wx:key="j" wx:for="{{item.goods}}" wx:for-item="good">
+          <view class="tr">
+            <text class="td" id="good-name">{{good.name}}</text>
+            <text class="td" id="good-number">×{{good.number}}</text>
+          </view>
+        </block>
+      </navigator>
+    </view>
+  </block>
+</view>

@@ -1,0 +1,90 @@
+<view class="nav">
+  <view class="row" id="nav-row">
+    <text id="goods-number">共{{goodsTypeNum}}件商品</text>
+    <view>
+      <navigator url="/pages/commodity_add/commodity_add">
+        <button id="add-btn">新增商品</button>
+      </navigator>
+    </view>
+  </view>
+</view>
+<block wx:key="index" wx:for="{{goods}}" wx:for-item="item">
+  <!-- 浏览状态item  -->
+  <view wx-if="{{item.updating == false}}">
+    <view class="goods-list">
+      <view class="end-row row">
+        <view>
+          <button id="edit-btn" bindtap="toEdit" data-id="{{item.id}}">编辑</button>
+        </view>
+      </view>
+      <view class="hr"></view>
+      <view class="row" id="info-row">
+        <view class="img">
+          <image src="{{item.image}}" mode="widthFix"></image>
+        </view>
+        <view id="info-table">
+          <view class="tr">
+            <text class="td label" id="id-label">id：</text>
+            <text class="td content" id="id-content">{{item.id}}</text>
+          </view>
+          <view class="tr">
+            <text class="td label" id="name-label">商品名：</text>
+            <text class="td content" id="name-content">{{item.name}}</text>
+          </view>
+          <view class="tr">
+            <text class="td label" id="price-label">价格：</text>
+            <text class="td content" id="price-content">{{item.price}}</text>
+          </view>
+          <view class="tr">
+            <text class="td label" id="number-label">剩余数量：</text>
+            <text class="td content" id="number-content">{{item.number}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="label" id="intro-label">商品介绍：</view>
+      <view class="content" id="intro-content">{{item.introduction}}</view>
+    </view>
+  </view>
+  <!-- 修改状态item -->
+  <view wx-if="{{item.updating == true}}">
+    <view class="goods-list">
+      <form bindsubmit="toSave">
+        <view class="space-between-row row">
+        <view>
+          <image src="/images/icons/delete.png" id="delete-btn" bindtap="toDelete" data-id="{{item.id}}"></image>
+          <!-- <button id="delete-btn" bindtap="toDelete" data-id="{{item.id}}">删除</button> -->
+        </view>
+        <view>
+          <button id="save-btn" form-type="submit">完成</button>
+        </view>
+      </view>
+      <view class="hr"></view>
+      <view class="row" id="info-row">
+        <view class="img">
+          <image src="{{item.image}}" mode="widthFix" bindtap="toUpdateImg" data-id="{{item.id}}"></image>
+        </view>
+        <view id="info-table">
+          <view class="tr">
+            <text class="td label" id="id-label">id：</text>
+            <input name="goodsId" value="{{item.id}}" class="td content" id="id-content" disabled="true"></input>
+          </view>
+          <view class="tr">
+            <text class="td label" id="name-label">商品名：</text>
+            <input name="goodsName" value="{{item.name}}" class="td content input" id="name-content"></input>
+          </view>
+          <view class="tr">
+            <text class="td label" id="price-label">价格：</text>
+            <input name="goodsPrice" value="{{item.price}}" class="td content input" id="price-content"></input>
+          </view>
+          <view class="tr">
+            <text class="td label" id="number-label">剩余数量：</text>
+            <input name="goodsNumber" value="{{item.number}}" class="td content" id="number-content" disabled="true"></input>
+          </view>
+        </view>
+      </view>
+      <view class="label" id="intro-label">商品介绍：</view>
+      <input name="goodsIntro" value="{{item.introduction}}" class="content input" id="intro-content"></input>
+      </form>
+    </view>
+  </view>
+</block>

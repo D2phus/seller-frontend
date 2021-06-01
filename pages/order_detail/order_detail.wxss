@@ -1,0 +1,50 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  margin: 20rpx 20rpx 20rpx 30rpx;
+  padding: 25rpx;
+  background: white;
+}
+.row{
+  display: flex;
+  width: 100%;
+  justify-content: start;
+  height: 1.5rem;
+  align-items: center;
+}
+.label{
+  width: 20%;
+  justify-content: center;
+  text-align: start;
+
+  font-size: 34rpx;
+  color: grey;
+}
+.content{
+  width: 80%;
+  justify-content: center;
+  text-align: start;
+
+  font-size: 34rpx;
+}
+.tr{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 1rem;
+  align-items: center;
+  padding-left: 20%;/*使内容表格和其他数据对齐*/
+
+  font-size: 34rpx;
+}
+.td{
+  width: 40%;
+  justify-content: center;
+  text-align: start;
+}
+#total-price{
+  margin:  30rpx 0 30rpx 0;
+  font-size: 42rpx;
+  font-weight: bold;
+  align-self: center;
+}

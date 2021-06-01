@@ -1,0 +1,3 @@
+<view class="container">
+  <image src="{{scanImage}}" bindtap="scanCodeEvent" mode="widthFix" class="scan-button"></image>
+</view>

@@ -1,0 +1,36 @@
+<!--pages/commodity_add/commodity_add.wxml-->
+<view class="container">
+  <form bindsubmit="toSave" class="add_good_form">
+    <view class="img-area">
+      <view class="img">
+        <image wx:if="{{image == 'undefined'}}" src="{{undefinedImg}}" mode="widthFix" bindtap="toUpdateImg"></image>
+        <image wx:else src="{{image}}" mode="widthFix" bindtap="toUpdateImg"></image>
+      </view>
+    </view>
+    <view class="row">
+      <text class="label">id：</text>
+      <input name="goodsId" value="{{id}}" disabled="true" class="content"></input>
+    </view>
+    <view class="row">
+      <text class="label">商品名：</text>
+      <input name="goodsName" class="input content"></input>
+    </view>
+    <view class="row">
+      <view class="label">价格：</view>
+      <input name="goodsPrice" class="input content"></input>
+    </view>
+    <view class="row">
+      <view class="label">剩余数量：</view>
+      <input name="goodsNumber" value="{{number}}" disabled="true" class="content"></input>
+    </view>
+    <view class="row">
+      <view class="label">商品介绍：</view>
+      <input name="goodsIntro" class="input content"></input>
+    </view>
+    <view class="end-row row">
+      <view class="btn-area">
+        <button class="submit-btn" form-type="submit">提交</button>
+      </view>
+    </view>
+  </form>
+</view>

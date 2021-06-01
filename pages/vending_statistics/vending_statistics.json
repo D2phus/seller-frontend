@@ -1,0 +1,4 @@
+{
+  "navigationBarTitleText": "售卖信息统计",
+  "usingComponents": {"ec-canvas": "../../ec-canvas/ec-canvas"}
+}

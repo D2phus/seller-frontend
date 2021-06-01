@@ -1,0 +1,22 @@
+<view class="main">
+  <view class="header">
+    <view wx:if="{{userInfo.avatarUrl != null}}" class="user-info">
+      <image src="{{avatarUrl}}" class="avatar"></image>
+      <text class="nickname">{{nickName}}</text>
+    </view>
+    <view wx:elif="{{canIUse && userInfo.avatarUrl == null}}" class="login">
+      <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class="getinfo">授权登录</button>
+    </view>
+    <view wx:else class="low_version">
+      <text>请升级微信版本</text>
+    </view>
+  </view>
+  <view class="option-list">
+    <view wx:key="index" wx:for="{{options}}">
+      <navigator url="{{item.url}}" class="option">
+        <text>{{item.option}}</text>
+      </navigator>
+    </view>
+  </view>
+</view>
+

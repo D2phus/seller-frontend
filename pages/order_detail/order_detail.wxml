@@ -1,0 +1,28 @@
+<!--pages/order_detail/order_detail.wxml-->
+<view class="container">
+  <text id="total-price">￥{{totalPrice}}</text>
+</view>
+<view class="container">
+  <view class="row">
+    <text class="label" id="state-label">状态</text>
+    <text class="content" id="state">{{state}}</text>
+  </view>
+  <view class="row">
+    <text class="label" id="time-label">时间</text>
+    <text class="content" id="time">{{time}}</text>
+  </view>
+  <view class="row">
+    <text class="label" id="id-label">订单号</text>
+    <text class="content" id="id">{{orderId}}</text>
+  </view>
+  <view class="row">
+    <text class="label" id="content-label">内容</text>
+  </view>
+  <block class="order" wx:key="index" wx:for="{{orders}}" wx:for-item="item">
+    <view class="tr">
+    <text class="td" id="good">{{item.name}}</text>
+    <text class="td" id="number">×{{item.number}}</text>
+    <text class="td" id="price">￥{{item.price}}</text>
+    </view>  
+  </block>
+</view>

@@ -1,0 +1,50 @@
+<view class='nav'>
+<!-- 顶部 -->
+<view class='swiper-nav'>
+  <!-- 选择栏 -->
+  <view wx:for="{{swiperNav}}" wx:key="index" class='item-nav {{item.cond ? "active" : ""}}'  data-index="{{index}}"  bindtap='swiperNav'>{{item.tabName}}</view>
+</view>
+<view class="date-select">
+  <!-- 日期选择栏 -->
+  <picker mode="date" bindchange="dateChange" value="{{date}}" start="{{startDate}}" end="{{endDate}}"><text class="picker-text">{{date}}</text></picker>
+</view>
+<view class="orders-sum-info">
+  <!-- 当日订单信息 -->
+  <text id="orders-number" class="info-item">共售出{{ordersNum}}单</text>
+  <text id="goods-number" class="info-item">{{goodsNum}}件商品</text>
+  <text id="orders-income" class="info-item">总收入￥{{ordersIncome}}</text>
+</view>
+</view>
+<view  wx-if="{{swiperNav[0].cond}}">
+  <block wx:key="index" wx:for="{{orders}}" wx:for-item="item">      
+      <view class="orders-list" wx:if="{{item.state == '已完成'}}">
+        <navigator url="/pages/order_detail/order_detail?id={{item.id}}">
+          <view class="order-list-row">
+            <view class="order-item" id="order-id">{{item.id}}</view>
+            <view class="order-item" id="order-price">￥{{item.totalPrice}}</view>
+          </view>
+          <view class="order-list-row">
+            <view class="order-item" id="order-time">{{item.time}}</view>
+            <view class="order-item" id="order-state-normal">{{item.state}}</view>
+          </view>
+        </navigator>
+      </view>
+  </block>
+</view>
+<view  wx:if="{{swiperNav[1].cond}}">
+  <block wx:key="index" wx:for="{{orders}}" wx:for-item="item">      
+      <view class="orders-list" wx:if="{{item.state == '已退款'}}">
+        <navigator url="/pages/order_detail/order_detail?id={{item.id}}">
+          <view class="order-list-row">
+            <view class="order-item" id="order-id">{{item.id}}</view>
+            <view class="order-item" id="order-price">￥{{item.totalPrice}}</view>
+          </view>
+          <view class="order-list-row">
+            <view class="order-item" id="order-time">{{item.time}}</view>
+            <view class="order-item" id="order-state-error">{{item.state}}</view>
+          </view>
+        </navigator>
+      </view>
+  </block>
+
+</view>

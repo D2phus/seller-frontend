@@ -1,0 +1,37 @@
+<view class='nav'>
+  <!-- 顶部 -->
+  <view class="date-select">
+    <!-- 日期选择栏 -->
+    <!-- fields = month -> 只显示年、月 -->
+    <picker mode="date" bindchange="dateChange" fields="month" value="{{date}}" start="{{startDate}}" end="{{endDate}}">
+      <text class="picker-text">{{date}}</text>
+    </picker>
+  </view>
+  <view class="orders-sum-info">
+    <!-- 当日订单信息 -->
+    <text id="orders-number" class="info-item">共售出{{ordersNum}}单</text>
+    <text id="goods-number" class="info-item">{{goodsNum}}件商品</text>
+    <text id="orders-income" class="info-item">总收入￥{{ordersIncome}}</text>
+  </view>
+</view>
+<view class="container">
+  <text class="title" id="sale-comparison-title">月份销量对比</text>
+  <view class="row">
+    <ec-canvas id="columnEChart" canvas-id="columnEchart" ec="{{ec}}" bind></ec-canvas>
+  </view>
+</view>
+
+<!-- 本月销量模块 -->
+<view class="container">
+    <text class="title" id="monthly-sale-title">本月销量排行</text>
+    <view class="tr">
+      <view class="label td">商品名</view>
+      <view class="label td">本月销量</view>
+    </view>
+    <block class="rankings" wx:key="index" wx:for="{{monthlyRankings}}" wx:for-item="item">
+      <view class="tr">
+        <view class="td">{{item.name}}</view>
+        <view class="td">{{item.sale}}</view>
+      </view>
+    </block>
+  </view>

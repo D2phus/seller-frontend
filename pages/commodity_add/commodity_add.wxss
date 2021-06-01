@@ -1,0 +1,69 @@
+/* pages/commodity_add/commodity_add.wxss */
+.container{
+  display: flex;
+  flex-direction: column;
+  margin: 20rpx 20rpx 20rpx 30rpx;
+  padding: 25rpx;
+  background: white;
+  height: 100%;
+}
+.container form{
+  width: 100%;
+}
+.row{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: start;
+  height: 2rem;
+  align-items: center;
+}
+.end-row{
+  justify-content: flex-end;
+  height: 4rem;
+}
+.label{
+  width: 30%;
+  justify-content: center;
+  text-align: start;
+
+  font-size: 34rpx;
+  color: grey;
+}
+.content{
+  width: 70%;
+  justify-content: center;
+  text-align: start;
+
+  font-size: 34rpx;
+}
+.input{
+  margin-top: 5rpx;
+  box-shadow: 0 0 3px #000;
+}
+.img-area{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 40%;
+  align-items: center;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+.img{
+  width: 50%;
+}
+.img image{
+  width: 100%;
+  height: 100%;
+}
+.btn-area{
+  width: 100%;
+}
+.submit-btn{
+  font-size: 32rpx;
+  color: white;
+  background-color: red;
+  width: 100%;
+}
+
